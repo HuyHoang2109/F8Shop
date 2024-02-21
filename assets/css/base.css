@@ -1,0 +1,39 @@
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    /*để font-size là 62.5% cho trường hợp web sử dụng đơn vị "rem" 
+    chẳng hạn như, có 1 thẻ "p" và ta css cho nó là "font-size: 1rem", thì 1rem ở đây = 10px, 1.1rem = 11px,...
+    nếu để font-size ở đây là 100%, thì ta phải chia lại cho ra số rem (100% thì 1rem = 16px)
+    => đây là 1 trick.*/    
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    /*để "box-sizing: inherit" ở * {} rồi sao con để "box-sizing: border-box" ở html {} ?
+    vì thẻ html là lớn nhất, nên khi đặt box-sizing: border-box thì các thẻ còn lại sẽ thừa kế giá trị border-box*/
+    box-sizing: border-box;
+}
+
+.grid {
+    width: 1200px;
+    /*để "max-width: 100%" hệ thống điều chỉnh độ rộng phù hợp cho các màn hình <1200px */
+    max-width: 100%;
+    /*margin như này là cho top với bottom*/
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+}
