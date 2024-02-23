@@ -178,7 +178,7 @@
     font-size: 1.2rem;
     color: #756f6e;
     line-height: 1.6rem;
-    margin-top: 0.8rem;
+    margin-top: 0.8rem; /*khúc này thêm margin-top vô vì trình duyệt của mình không tự cách ra 1 đoạn*/
 }
 
 .header__notify-footer {
