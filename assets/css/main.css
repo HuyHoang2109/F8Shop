@@ -88,6 +88,7 @@
     top: 100%;
     padding: 8px;
     border-radius: 2px;
+    display: none;
 }
 
 .header__qr-img {
@@ -119,6 +120,7 @@
     width: 404px;
     border: 1px solid #d3d3d3;
     background-color: var(--white-color);
+    cursor: default;
 }
 
 .header__notify-header {
@@ -169,7 +171,7 @@
 .header__notify-name {
     display: block;
     font-size: 1.4rem;
-    color: var(--black-color);
+    color: var(--text-color);
     font-weight: 400;
 }
 
@@ -178,16 +180,21 @@
     font-size: 1.2rem;
     color: #756f6e;
     line-height: 1.6rem;
-    margin-top: 0.8rem; /*khúc này thêm margin-top vô vì trình duyệt của mình không tự cách ra 1 đoạn*/
+    margin-top: 0.4rem; /*khúc này thêm margin-top vô vì trình duyệt của mình không tự cách ra 1 đoạn*/
 }
 
 .header__notify-footer {
-    text-align: center;
+    
 }
 
 .header__notify-footer-btn {
     text-decoration: none;
     color: var(--text-color);
-    padding: 16px 16px;
+    width: 100%;
+    padding: 8px 0;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 400;
+    display: block;
 }
 
