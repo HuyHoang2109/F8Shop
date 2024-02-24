@@ -23,6 +23,11 @@
     min-height: 26px;
 }
 
+.header__navbar-item--has-qr:hover .header__qr {
+    /*Cái này nghĩa là, khi hover vào cái cái .header__navbar-item--has-qr thì những cái CSS sau sẽ apply cho .header__qr (vì cái này là lớp con)*/
+    display: block;
+}
+
 .header__navbar-item,
 .header__navbar-item-link {
     display: inline-block;
@@ -85,10 +90,20 @@
     background-color: var(--white-color);
     position: absolute;
     left: 0;
-    top: 100%;
+    top: 118%; /*118% để cho cái hình qr cách 1 khoảng cách đúng bằng từ dòng chữ lên lề trên*/
     padding: 8px;
     border-radius: 2px;
     display: none;
+}
+
+.header__qr::before {
+    position: absolute;
+    left: 0;
+    top: -16px;
+    width: 100%; /*cho bằng thằng ".header__qr"*/
+    height: 20px;
+    content: "";
+    display: block;
 }
 
 .header__qr-img {
