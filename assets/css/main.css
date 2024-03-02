@@ -146,6 +146,29 @@
     display: block;
     animation: headerNotifyGrowth ease-in 0.2s;
     display: none;
+    will-change: opacity, transform;
+}
+
+.header__notify::before {
+    content: "";
+    border-width: 20px 27px;
+    border-style: solid;
+    border-color: transparent transparent var(--white-color) transparent;
+    position: absolute;
+    right: 0px;
+    top: -29px; 
+    /* coi lại video Header Notification CSS - phần 3 để hiểu */
+}
+
+.header__notify::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 90px;
+    height: 20px;
+    right: 0;
+    top: -16px;
+    /* coi lại video Header Notification CSS - phần 3 để hiểu */
 }
 
 @keyframes headerNotifyGrowth {
