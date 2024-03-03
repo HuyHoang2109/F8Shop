@@ -119,13 +119,12 @@
 
         </div>
         <div class="modal__body">
-            <div class="modal__inner"> <!-- Lớp modal__inner để code những thành phần riêng-->
-
-                <!-- Authentication Form -->
-                <div class="auth-form">
+            <!-- Authentication Form -->
+            <div class="auth-form">
+                <div class="auth-form__container">
                     <div class="auth-form__header">
                         <h3 class="auth-form__heading">Đăng Ký</h3>
-                        <span class="auth-form__switch-btn">Đăng Nhập</span>
+                        <span class="auth-form__switch-btn">Đăng nhập</span>
                     </div>
 
                     <div class="auth-form__form">
@@ -144,9 +143,9 @@
 
                     <div class="auth-form__aside">
                         <p class="auth-form__policy-text">
-                            Bằng việc đăng ký, bạn đã đồng ý với Shopee về
-                            <a href="" class="auth-form__policy-link">Điều khoản dịch vụ</a> &
-                            <a href="" class="auth-form__policy-link">Chính sách bảo mật</a>
+                            Bằng việc đăng ký, bạn đã đồng ý với F8Shop về
+                            <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a> &
+                            <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
                         </p>
                     </div>
 
@@ -154,20 +153,20 @@
                         <button class="btn">TRỞ LẠI</button>
                         <button class="btn btn-primary">ĐĂNG KÝ</button>
                     </div>
-
-                    <div class="auth-form__socials">
-                        <a href="" class="btn btn--with-icon">
-                            <i class="fa-brands fa-facebook"></i>
-                            Kết nối với Facebook
-                        </a>
-                        <a href="" class="btn btn--with-icon">
-                            <i class="fa-brands fa-google"></i>
-                            Kết nối với Google
-                        </a>
-
-                    </div>
                 </div>
-            </div>
+
+                <div class="auth-form__socials">
+                    <a href="" class="btn btn--with-icon">
+                        <i class="fa-brands fa-facebook"></i>
+                        Kết nối với Facebook
+                    </a>
+                    <a href="" class="btn btn--with-icon">
+                        <i class="fa-brands fa-google"></i>
+                        Kết nối với Google
+                    </a>
+
+                </div>
+            </div>         
         </div>
     </div>
     
@@ -176,6 +175,8 @@
 
 <!-- Authentication Form Explained 
 -> 1 thẻ <div>, gọi là "auth-form" ôm trọn tất cả
+
+-> 1 thẻ <div> nữa, gọi là "container" để ôm trọn những khối từ "Đăng Nhập" & "Đăng Ký" ở phần "header" cho tới hết 2 button "Trở lại" & "Đăng ký"
 
 -> 1 thẻ <div> nữa, gọi là "header" để ôm 2 chữ "Đăng Nhập" & "Đăng Ký"
 -> 1 thẻ <h3> là tiêu đề
@@ -193,4 +194,4 @@
 
 -> 1 thẻ <div>, gọi là "socials" để ôm trọn 2 link Facebook với Google
 -> 2 thẻ <a>, gọi là "btn--with-icon". Không đặt theo "auth-form" là vì sau này nếu sử dụng lại cái button này, mà gọi theo "auth-form" sẽ bị dính chung
--> 2 thẻ <a> trên chứa mỗi thẻ 1 thẻ <img> nữa, gọi là-->
+-> 2 thẻ <a> trên chứa mỗi thẻ 1 thẻ <img> nữa.-->
