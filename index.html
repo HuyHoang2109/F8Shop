@@ -113,5 +113,84 @@
         </footer>
     </div>
     
+    <!-- Modal Layout -->
+    <div class="modal">
+        <div class="modal__overlay">
+
+        </div>
+        <div class="modal__body">
+            <div class="modal__inner"> <!-- Lớp modal__inner để code những thành phần riêng-->
+
+                <!-- Authentication Form -->
+                <div class="auth-form">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng Ký</h3>
+                        <span class="auth-form__switch-btn">Đăng Nhập</span>
+                    </div>
+
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                        </div>
+
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                        </div>
+
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Nhập lại mật khẩu">
+                        </div>
+                    </div>
+
+                    <div class="auth-form__aside">
+                        <p class="auth-form__policy-text">
+                            Bằng việc đăng ký, bạn đã đồng ý với Shopee về
+                            <a href="" class="auth-form__policy-link">Điều khoản dịch vụ</a> &
+                            <a href="" class="auth-form__policy-link">Chính sách bảo mật</a>
+                        </p>
+                    </div>
+
+                    <div class="auth-form__controls">
+                        <button class="btn">TRỞ LẠI</button>
+                        <button class="btn btn-primary">ĐĂNG KÝ</button>
+                    </div>
+
+                    <div class="auth-form__socials">
+                        <a href="" class="btn btn--with-icon">
+                            <i class="fa-brands fa-facebook"></i>
+                            Kết nối với Facebook
+                        </a>
+                        <a href="" class="btn btn--with-icon">
+                            <i class="fa-brands fa-google"></i>
+                            Kết nối với Google
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </body>
 </html>
+
+<!-- Authentication Form Explained 
+-> 1 thẻ <div>, gọi là "auth-form" ôm trọn tất cả
+
+-> 1 thẻ <div> nữa, gọi là "header" để ôm 2 chữ "Đăng Nhập" & "Đăng Ký"
+-> 1 thẻ <h3> là tiêu đề
+-> 1 thẻ <span> với tên "switch-btn". Ở đây không cần dùng thẻ <a>, vì nó chỉ chuyển form chứ không dẫn link đi đâu cả
+
+-> 1 thẻ <div> nữa, gọi là "form" để ôm phần body
+-> 3 thẻ <div> nữa, gọi là "group", với mỗi thẻ sẽ bao gồm 1 <input> con, gọi là "input". Mục đích là để tiện cho sau này nếu có chỉnh sửa
+
+-> 1 thẻ <div> nữa, gọi là "aside" để ôm trọn dòng "Đồng ý điều khoản"
+-> 1 thẻ <p>, gọi là "policy-text" để thêm dòng "Đồng ý điều khooản"
+-> 2 thẻ <a>, gọi là "policy-link" để dẫn 2 đường link "Điều khoản" & "Chính sách"
+    
+-> 1 thẻ <div>, gọi là "controls" ôm trọn 2 nút "Trở lại" & "Đăng ký"
+-> 2 thẻ <button>, gọi là "btn" để làm 2 nút "Trở lại" & "Đăng ký". Còn cái "btn-primary" thì lên video xem lại chứ giải thích dài dòng. Link video: https://fullstack.edu.vn/learning/html-css?id=27f729a4-57cd-4ad0-aa71-b367f502991b 
+
+-> 1 thẻ <div>, gọi là "socials" để ôm trọn 2 link Facebook với Google
+-> 2 thẻ <a>, gọi là "btn--with-icon". Không đặt theo "auth-form" là vì sau này nếu sử dụng lại cái button này, mà gọi theo "auth-form" sẽ bị dính chung
+-> 2 thẻ <a> trên chứa mỗi thẻ 1 thẻ <img> nữa, gọi là-->
