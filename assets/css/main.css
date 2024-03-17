@@ -339,5 +339,7 @@
 }
 
 .auth-form__controls {
+    display: flex;
+    justify-content: flex-end;
     margin-top: 80px;
 }

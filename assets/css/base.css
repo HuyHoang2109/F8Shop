@@ -59,9 +59,24 @@ html {
     border-radius: 2px;
     font-size: 1.2rem;
     padding: 0;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-color);
+    background-color: var(--white-color);/*cái này mình thêm vô. Không hiểu tại sao trình duyệt nó auto màu xám.*/
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .btn.btn-primary {
     color: var(--white-color);
     background-color: var(--primary-color);
+}
+
+/* Class này là phụ thôi. Mục đích là để hiển thị nút nào bị disabled, hay còn gọi là không sử dụng được. */
+.btn--disabled {
+    color: #949494;
+    cursor: default;
+    background-color: #c3c3c3;
 }
