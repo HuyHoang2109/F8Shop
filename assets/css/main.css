@@ -2,7 +2,7 @@
     /*không cần set "width" vì thẻ header này đang có tính chất "block", nên sẽ
     thừa kế các thuộc tính của thẻ chứa nó. Mà mặc định trình duyệt set là "display:block",
     => width = độ dài của trình duyệt luôn.*/
-    height: 120px;
+    height: var(--header-height);
     background-image: linear-gradient(0, #fe6433, #f53e2d);
 }
 
@@ -14,7 +14,7 @@
 .header__navbar-list {
     list-style: none;
     padding-left: 0;
-    
+    margin: 4px 0 0 0;
 }
 
 .header__navbar-item {
@@ -258,35 +258,159 @@
     display: block;
 }
 
-/* Modal */
-.modal { 
-    /*Thằng này sẽ full màn hình, làm mốc cố định thuộc tính postion cho thằng dưới*/
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+/* Header with search */
+.header-with-search {
+    height: var(--header-with-search-height);
     display: flex;
+    align-items: center;
+    margin: 0 8px;
 }
 
-.modal__overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* cái này là màu xám*/
+.header__logo {
+    width: 200px;
 }
 
-.modal__body {
+.header__logo-img {
+    width: 150px;
+    color: var(--white-color);
+    filter: invert(100%) sepia(2%) saturate(0%) hue-rotate(132deg) brightness(104%) contrast(102%);   
+}
+
+.header__search {
+    flex: 1;
+    height: 40px;
     background-color: var(--white-color);
-    margin: auto;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.header__search-input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    padding: 0 16px;
+    border-radius: 2px;/*thêm một lần border-radius nữa vì thẻ <input> sẽ tô đè, dẫn đến vuông góc (làm mất border-radius của .header__search*/
+}
+
+.header__search-selection {
+    border-left: 1px solid #e8e8e8;
+    padding-left: 16px;
     position: relative;
-    z-index: 1;
-    border-radius: 5px;
+    cursor: pointer;
+}
+
+.header__search-selection-label {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+.header__search-selection-icon {
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    margin: 0 16px 0 8px;
+    /* position: relative;
+    top: 0.5px; *//*cái này comment lại vì mình thấy không bị lệch*/
+}
+
+.header__search-btn {
+    background-color: var(--primary-color);
+    border: none;
+    width: 60px;
+    height: 34px;
+    border-radius: 2px;
+    margin-right: 4px;
+    outline: none;
+}
+
+.header__search-btn:hover {
+    background-color: #fb6445;
+    cursor: pointer;
+}
+
+.header__search-btn-icon {
+    font-size: 1.4rem;
+    color: var(--white-color);
+}
+
+.header__search-selection:hover .header__search-option {
+    display: block;
+}
+
+.header__search-option {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 130px;
+    list-style: none;
+    box-shadow: 0 1px 2px #e0e0e0;/*số đầu là trục x (dương thì phải, âm thì trái), số sau là trục y (âm là lên, dương là xuống), số thứ 3 độ mờ, số thứ 4 là màu*/
+    padding-left: 0;
+    margin: 16px 0 0 0;/*cái này mình thêm vào*/
+    display: none;
+    animation: fadeIn ease-in 0.15s;
+    border-radius: 3px;
+}
+
+.header__search-option::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 18px;/*cái này làm khác video*/
+    position: absolute;
+    top: -16px;/*cái này làm khác video*/
+    left: 0;
+    /* background-color: red; */
+}
+
+.header__search-option-item {
+    background-color: var(--white-color);
+    padding: 8px 8px;
+    border-radius: 3px;
+}
+/* Xem video Header tìm kiếm CSS từ phút 36:00 để coi cách ổng sủa cái border-radius nếu có bị hỏng.
+Vì mình thêm border-radius ở cả "header__search-option" & "header__search-option-item" thì không vấn đề gì. */
+
+.header__search-option-item:hover {
+    background-color: #fafafa;
+    cursor: pointer;
+}
+
+.header__search-option-item span {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin-left: 8px;
+}
+
+.header__search-option-item i {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-left: 12px;
+    display: none;
+}
+
+.header__search-option-item--active i {
+    display: inline-block;
+}
+
+.header__cart {
+    width: 150px;
+    text-align: center;
+}
+
+.header__cart-icon {
+    color: var(--white-color);
+    font-size: 2.4rem;
+    margin-top: 6px;
 }
 
 /* Authentication Modal */
-.auth-form__form {
-    width: 500px;    
+.auth-form {
+    width: 500px;
+    background-color: var(--white-color);
+    border-radius: 5px;
+    overflow: hidden;/*thuộc tính này để ẩn thằng con trồi ra. Ẩn nó đi để thấy nó bị nhọn ở góc dưới, mặc dù ở trên có bo góc.*/
 }
 .auth-form__container {
     /* padding: trên+dưới trái+phải */
@@ -297,6 +421,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 12px;
+    margin-top: 12px;
 }
 
 .auth-form__heading {
@@ -343,3 +469,68 @@
     justify-content: flex-end;
     margin-top: 80px;
 }
+
+.auth-form__controls-back { 
+    /*class này để thêm thuộc tính tạo khoảng cách giữa chữ "Trở lại" & "Đăng ký"*/
+    margin-right: 8px;
+}
+
+.auth-form__socials {
+    background-color: #f5f5f5;
+    padding: 16px 36px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 22px;
+}
+
+.auth-form__socials-icon {
+    font-size: 1.8rem;
+}
+
+.auth-form__socials--facebook {
+    background-color: #3a5a98;
+    color: var(--white-color);
+}
+
+.auth-form__socials--facebook.auth-form__socials-icon {
+    color: var(--white-color);
+}
+
+.auth-form--socials-title {
+    margin: 0 36px;
+}
+
+/* class này mình tự tạo để chỉnh 2 cái nút đăng nhập facebook + google */
+.auth-form--socials-title.auth-form--login {
+    margin: 0 24px;
+}
+
+.auth-form__socials--google {
+    color: #666;
+    background-color: var(--white-color);
+    margin-left: 8px;
+}
+
+.auth-form__help {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.auth-form__help--link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #939393;
+}
+
+.auth-form__help--separate {
+    display: block;
+    height: 22px;
+    border-left: 1px solid #eaeaea;
+    margin: -2px 16px 0;
+}
+
+.auth-form__help--forgot {
+    color: var(--primary-color);
+}
+
+/* đang xem tới Dựng khung tìm kiếm, 18:16 */
