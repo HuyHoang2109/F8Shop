@@ -418,13 +418,13 @@ Vì mình thêm border-radius ở cả "header__search-option" & "header__search
     text-align: center;
 }
 
-/* Thêm position: relative ở .header__cart-wrap, position: absolute ở .header__cart-list */
+/* Thêm position: relative ở .header__cart-wrap, position: absolute ở .header__cart-list & .header__cart-notice*/
 .header__cart-wrap {
     position: relative;
     display: inline-block;/*để vùng hover nó nhỏ lại vừa với cái icon*/
     padding: 0 12px; /*để vùng hover to ra (quanh icon) 1 tí*/
     cursor: pointer;
-    /* Xem Header giỏ hàng trống CSS phút 22:00 */
+    /* Xem Header giỏ hàng trống CSS 22:00 */
 }
 
 .header__cart-icon {
@@ -446,12 +446,14 @@ Vì mình thêm border-radius ở cả "header__search-option" & "header__search
     height: 200px;
     border-radius: 2px;
     box-shadow: 0 1px 3.125rem 0 rgba(0, 0, 0, 0.2);
-    display: none;
+    cursor: default;
     animation: fadeIn ease-in 0.2s;
+    /* display: none; */
 }
 
 .header__cart-list::after {
     content: "";
+    cursor: pointer;/*thêm cursor này vào để di chuột quanh cái cart icon vẫn có trỏ tay*/
     position: absolute;
     right: 5px;
     top: -24px;
@@ -462,18 +464,45 @@ Vì mình thêm border-radius ở cả "header__search-option" & "header__search
 
 .header__cart-empty-img {
     width: 50%;/*cái này mình sửa lại so với trên video*/
-    height: 80%;/*cái này mình tự thêm, vì hình trên video khác hình mình xài*/
+    height: 70%;/*cái này mình tự thêm, vì hình trên video khác hình mình xài*/
+    margin-bottom: 30px;/*cái này mình tự thêm, vì hình trên video khác hình mình xài*/
+    display: none;
 }
 
 .header__cart-list--empty {
     padding: 24px 0;
+    
 }
 
-.header__cart-list-empty-cart-msg {
+/* Giả sử giỏ hàng không trống (có hàng), thì ta sẽ xóa class header__cart-list-empty đi.
+Khi giỏ hàng trống thì lại thêm class trên vào.
+CSS này sẽ làm cho hình ảnh (img) và tin nhắn (msg) xuất hiện. 
+Xem video Header Cart Badge 4:50 để hiểu thêm.*/
+.header__cart-list--empty .header__cart-empty-img,
+.header__cart-list--empty .header__cart-list-empty-msg {
     display: block;
-    font-size: 1.4rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header__cart-list-empty-msg {
+    display: none;
+    font-size: 1.6rem;
     margin-top: 14px;
     color: var(--text-color);
+}
+
+.header__cart-notice {
+    position: absolute;
+    top: -7px;
+    right: -2px;/*top & right làm khác video*/
+    padding: 1px 7px;
+    font-size: 1.4rem;
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    border-radius: 50%;/*cái này làm khác video*/
+    border: 2px solid #ee4d2d;
+    /* line-height: 1.6rem; trình duyệt edge không cần thuộc tính này*/
 }
 
 /* Authentication Modal */
@@ -648,4 +677,4 @@ Vì mình thêm border-radius ở cả "header__search-option" & "header__search
     display: block;
 }
 
-/* đã xem xong Header giỏ hàng trống CSS */
+/* đã xem xong Header cart badge */
