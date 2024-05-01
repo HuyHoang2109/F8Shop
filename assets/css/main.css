@@ -15,12 +15,83 @@
     list-style: none;
     padding-left: 0;
     margin: 4px 0 0 0;
+    display: flex;
 }
 
 .header__navbar-item {
     margin: 0 8px;
     position: relative;
     min-height: 26px;
+}
+
+.header__navbar-user {
+    display: flex;
+    justify-content: center;
+    position: relative;/*position: relative để thằng con là .header__navbar-user-menu, là position: absolute, cho nó ăn theo thằng cha.*/
+}
+
+.header__navbar-user-img {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.header__navbar-user-name {
+    margin-left: 8px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.header__navbar-user-menu {
+    position: absolute;
+    width: 160px;
+    padding-left: 0;
+    top: calc(100% + 6px);
+    right: 0;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    list-style: none;
+    z-index: 1;/*cái này tự thêm*/
+    box-shadow: 0 1px 2px #e0e0e0;
+    display: none;
+}
+
+.header__navbar-user-menu::before {
+    content: "";
+    border-width: 20px 27px;
+    border-style: solid;
+    border-color: transparent transparent var(--white-color) transparent;
+    position: absolute;
+    right: 13px;
+    top: -30px;
+}
+
+.header__navbar-user-item {
+    
+}
+
+.header__navbar-user-item a {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 10px 16px;
+    display: block;
+}
+
+.header__navbar-user-item a:first-child {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.header__navbar-user-item a:last-child {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.header__navbar-user-item a:hover {
+    background-color: #f8f8f8;
 }
 
 .header__navbar-item--has-qr:hover .header__qr {
@@ -52,7 +123,7 @@ Comment lại để thấy sự thay đổi. */
 .header__navbar-item,
 .header__navbar-item-link,
 .header__navbar-icon-link {
-    display: inline-flex;
+    display: flex; /*thay đổi từ inline-flex -> flex, vì ở thẻ cha là header__navbar-list đã có thuộc tính display: flex rồi*/
     align-items: center;
 }
 
@@ -443,12 +514,11 @@ Vì mình thêm border-radius ở cả "header__search-option" & "header__search
     right: 0px; 
     background-color: var(--white-color);
     width: 400px;
-    height: 200px;
     border-radius: 2px;
     box-shadow: 0 1px 3.125rem 0 rgba(0, 0, 0, 0.2);
     cursor: default;
     animation: fadeIn ease-in 0.2s;
-    /* display: none; */
+    display: none;
 }
 
 .header__cart-list::after {
@@ -503,6 +573,113 @@ Xem video Header Cart Badge 4:50 để hiểu thêm.*/
     border-radius: 50%;/*cái này làm khác video*/
     border: 2px solid #ee4d2d;
     /* line-height: 1.6rem; trình duyệt edge không cần thuộc tính này*/
+}
+
+/* Cart items */
+.header__cart-heading {
+    text-align: left;
+    margin: 8px 0 8px 12px;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #999;
+}
+
+.header__cart-list-items {
+    padding-left: 0;
+    list-style: none;
+}
+
+.header__cart-item {
+    display: flex;
+    align-items: center;
+    /* margin: 8px 0; */
+    padding: 5px 0;/*theo video là margin, nhưng mà mình thấy không đẹp nên để thành padding*/
+}
+
+.header__cart-item:hover {
+    background-color: #f8f8f8;
+}
+
+.header__cart-img {
+    width: 42px;
+    height: 42px;
+    margin: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.header__cart-item-info {
+    /* width: 100%; cái này mình comment vì trình duyệt 100% sẵn */
+    margin-right: 12px;
+}
+
+.header__cart-item-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__cart-item-name {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--text-color);
+    text-align: start;
+    /* margin: 0; cái này là theo video, ở dưới là mình tự sửa theo ý mình */
+    margin: 0 4px 0 0;
+}
+
+.header__cart-price-wrap {
+    display: flex;
+    margin-left: 4px;
+}
+
+.header__cart-item-price {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+
+.header__cart-item-multiply {
+    font-size: 0.8rem;
+    margin: 0 4px;
+    color: #757575;
+}
+
+.header__cart-item-qnt {
+    font-size: 1.2rem;
+    color: #757575;
+}
+
+.header__cart-item-body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2px;/*cái này tự thêm*/
+}
+
+.header__cart-item-description {
+    color: #757575;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.header__cart-item-remove {
+    color: var(--text-color);
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.header__cart-item-remove:hover {
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.header__cart-view-cart {
+    float: right;
+    margin: 0 12px 12px 0;
+}
+
+.header__cart-view-cart:hover {
+    background-color: #f05d41;
+
 }
 
 /* Authentication Modal */
