@@ -30,6 +30,13 @@
     position: relative;/*position: relative để thằng con là .header__navbar-user-menu, là position: absolute, cho nó ăn theo thằng cha.*/
 }
 
+.header__navbar-user:hover {
+}
+
+.header__navbar-user:hover .header__navbar-user-menu {
+    display: block;
+}
+
 .header__navbar-user-img {
     width: 22px;
     height: 22px;
@@ -41,6 +48,7 @@
     margin-left: 8px;
     font-size: 1.3rem;
     font-weight: 600;
+    margin-left: 4px;
 }
 
 .header__navbar-user-menu {
@@ -49,12 +57,13 @@
     padding-left: 0;
     top: calc(100% + 6px);
     right: 0;
-    border-radius: 2px;
+    border-radius: 3px;
     background-color: var(--white-color);
     list-style: none;
     z-index: 1;/*cái này tự thêm*/
     box-shadow: 0 1px 2px #e0e0e0;
     display: none;
+    animation: headerNotifyGrowth 0.2s;/*cái này tự thêm*/
 }
 
 .header__navbar-user-menu::before {
@@ -67,8 +76,23 @@
     top: -30px;
 }
 
+.header__navbar-user-menu::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -8px;
+    right: 0;
+    width: 55%;
+    height: 8px;
+    /* background-color: black; cái này chỉ để test thôi*/
+}
+
 .header__navbar-user-item {
     
+}
+
+.header__navbar-user-item--separate {
+    border-top: 1px solid rgba(242, 22, 22, 0.08);
 }
 
 .header__navbar-user-item a {
@@ -114,7 +138,7 @@ Comment lại để thấy sự thay đổi. */
 .header__navbar-item,
 .header__navbar-item-link {
     display: inline-block;
-    font-size: 1.4rem;/*=14px*/
+    font-size: 1.3rem;/*=13px*/
     color: var(--white-color);
     text-decoration: none;
     font-weight: 300;
@@ -155,6 +179,10 @@ Comment lại để thấy sự thay đổi. */
 .header__navbar-icon-link {
     color: var(--white-color);
     text-decoration: none;
+}
+
+.header__navbar-icon-link:nth-child(2) {
+    margin-left: 3px;
 }
 
 .header__navbar-icon {
@@ -217,10 +245,11 @@ Comment lại để thấy sự thay đổi. */
     top: 118%;
     right: 0;
     width: 404px;
+    border-radius: 6px;
     border: 1px solid #d3d3d3;
     background-color: var(--white-color);
     cursor: default;
-    transform-origin: calc(100% - 20px) right;
+    transform-origin: calc(100% - 32px) top;
     display: block;
     animation: headerNotifyGrowth ease-in 0.2s;
     display: none;
@@ -264,6 +293,7 @@ Comment lại để thấy sự thay đổi. */
 .header__notify-header {
     height: 40px;
     background-color: var(--white-color);
+    border-radius: 3px;
 }
 
 .header__notify-header h3 {
@@ -346,6 +376,11 @@ Comment lại để thấy sự thay đổi. */
 
 .header__logo {
     width: 200px;
+}
+
+.header__logo-link {
+    color: transparent;
+    text-decoration: none;
 }
 
 .header__logo-img {
@@ -437,10 +472,10 @@ Comment lại để thấy sự thay đổi. */
     list-style: none;
     box-shadow: 0 1px 2px #e0e0e0;/*số đầu là trục x (dương thì phải, âm thì trái), số sau là trục y (âm là lên, dương là xuống), số thứ 3 độ mờ, số thứ 4 là màu*/
     padding-left: 0;
-    margin: 16px 0 0 0;/*cái này mình thêm vào*/
+    margin: 14.5px 0 0 0;/*cái này mình thêm vào*/
     display: none;
-    animation: fadeIn ease-in 0.15s;
     border-radius: 3px;
+    animation: fadeIn ease-in 0.15s;
 }
 
 .header__search-option::after {
@@ -818,7 +853,7 @@ Xem video Header Cart Badge 4:50 để hiểu thêm.*/
     left: 0;
     width: calc(100% - 16px);
     background-color: var(--white-color);
-    border-radius: 2px;
+    border-radius: 3px;
     box-shadow: 0 1px 5px rgb(189, 189, 189);
     overflow: hidden;
     display: none;
