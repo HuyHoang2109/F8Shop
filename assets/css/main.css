@@ -894,6 +894,10 @@ Xem video Header Cart Badge 4:50 để hiểu thêm.*/
     background-color: #f5f5f5;
 }
 
+.app__content {
+    padding: 36px;
+}
+
 .category {
     border-radius: 3px;
     background-color: var(--white-color);
@@ -903,6 +907,7 @@ Xem video Header Cart Badge 4:50 để hiểu thêm.*/
     color: var(--text-color);
     font-size: 1.8rem;
     padding: 12px 16px;
+    margin-top: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -917,9 +922,6 @@ Xem video Header Cart Badge 4:50 để hiểu thêm.*/
     padding: 0 0 8px 0;
     list-style: none;
     margin-left: 9px;
-}
-
-.category-item {
 }
 
 .category-item--active .category-item__link { /*thẻ nào có active thì thẻ item__link thẻ đó CSS như sau*/
@@ -953,4 +955,83 @@ Xem video Header Cart Badge 4:50 để hiểu thêm.*/
 .category-item__link:hover {
     right: -4px;
     color: var(--primary-color);
+}
+
+/* Home Sort + Filter */
+.home-filter {
+    display: flex;
+    align-items: center;
+    padding: 12px 22px;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.home-filter__label {
+    color: #555;
+    font-size: 1.4rem;
+    margin-right: 16px;
+    font-size: 1.4rem;
+
+}
+
+.home-filter__btn {
+    margin-right: 12px;
+    min-width: 90px;
+}
+
+.home-filter__page {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /*auto đưa cái số trang sang sát bên phải*/
+}
+
+
+.home-filter__page-num {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin-right: 22px;
+}
+
+.home-filter__page-control {
+    border-radius: 3px;
+    overflow: hidden;
+    display: flex;
+    width: 72px;
+    height: 36px;
+    
+}
+
+.home-filter__page-current {
+    color: var(--primary-color);
+}
+
+
+.home-filter__page-btn {
+    background-color: var(--white-color);
+    display: flex;
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #555;
+    flex: 1;
+}
+
+.home-filter__btn.home-filter__page-btn {
+    box-shadow: 0 1px 2px #e0e0e0;/*cái này tự thêm vào*/
+}
+
+.home-filter__page-btn--disabled {
+    background-color: #f9f9f9;
+    cursor: default;
+}
+
+.home-filter__page-btn--disabled .home-filter__page-icon {
+    color: #ccc;
+}
+
+.home-filter__page-icon {
+    margin: auto;/*cái này tự cách 2 cái dấu trái, phải đều nhau*/
+}
+
+.home-filter__page-btn:first-child {
+    border-right: 1px solid #eee;
 }
