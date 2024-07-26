@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .header {
     /*không cần set "width" vì thẻ header này đang có tính chất "block", nên sẽ
     thừa kế các thuộc tính của thẻ chứa nó. Mà mặc định trình duyệt set là "display:block",
@@ -1302,7 +1306,7 @@ i.home-product-item__like-icon-fill { /*mặc định sẽ ẩn thằng trái ti
 }
 
 .footer__heading {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     text-transform: uppercase;
     color: var(--text-color);
 }
@@ -1315,7 +1319,7 @@ i.home-product-item__like-icon-fill { /*mặc định sẽ ẩn thằng trái ti
 .footer-item__link {
     display: block;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #737373;
     padding: 6px 0;
     display: flex;

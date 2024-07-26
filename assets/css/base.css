@@ -28,18 +28,7 @@ html {
     box-sizing: border-box;
 }
 
-.grid {
-    width: 1200px;
-    /*để "max-width: 100%" hệ thống điều chỉnh độ rộng phù hợp cho các màn hình <1200px */
-    max-width: 100%;
-    /*margin như này là cho top với bottom*/
-    margin: 0 auto;
-}
-
-.grid__full-width {
-    width: 100%;
-}
-
+/* Responsive */
 .grid__row {
     display: flex;
     flex-wrap: wrap;
