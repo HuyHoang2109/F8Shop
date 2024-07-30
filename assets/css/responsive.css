@@ -90,11 +90,40 @@
     }
 
     .header__search-history {
-       position: fixed;
-       width: 100%;
-       top: calc(var(--header-height) + var(--header-sort-bar-height));
-       left: 0;
-       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        position: fixed;
+        width: 100%;
+        top: calc(var(--header-height) + var(--header-sort-bar-height));
+        left: 0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .header__search-input { /*cái này tự thêm*/
+        padding: 0;
+    }
+
+    .header__search-selection { /*cái này tự thêm*/
+        display: none;
+    }
+
+    .header__search-btn { /*cái này tự thêm*/
+        margin: 0;
+        width: 34px;
+        height: 28px;
+    }
+
+    .app__content {
+        margin: 0 4px;
+    }
+
+    .pagination-item {
+        margin: 0;
+    }
+
+    .pagination-item__link { /*phải thay đổi cái này vì nó ảnh hưởng hiển thị trên mobile*/
+        height: 28px;
+        font-size: 1.6rem;
+        min-width: 34px; /*video là 36px*/
+    
     }
 
     @keyframes mobileSearchSideIn {

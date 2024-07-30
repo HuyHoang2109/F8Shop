@@ -163,6 +163,7 @@ html {
 
 .select-input__label {
     font-size: 1.4rem;
+    color: var(--text-color); /*cái này tự thêm*/
 }
 
 .select-input__icon { /*lấy của .header__search-selection-icon*/

@@ -2,6 +2,12 @@
     box-sizing: border-box;
 }
 
+/* Trường hợp sử dụng trên điện thoại, vẫn lòi ra một khoảng trắng, thì đây là cách fix đơn giản nhất.
+Cho cái thăng chứa toàn bộ nội dung website overflow: hidden.*/
+.app {
+    overflow: hidden;
+}
+
 .header {
     /*không cần set "width" vì thẻ header này đang có tính chất "block", nên sẽ
     thừa kế các thuộc tính của thẻ chứa nó. Mà mặc định trình duyệt set là "display:block",
@@ -468,7 +474,7 @@ Comment lại để thấy sự thay đổi. */
     border: none;
     width: 60px;
     height: 34px;
-    border-radius: 2px;
+    border-radius: 3px;
     margin-right: 4px;
     outline: none;
 }
@@ -983,7 +989,7 @@ Xem video Header Cart Badge 4:50 để hiểu thêm.*/
 }
 
 .app__content {
-    padding: 36px 0; /*aaa*/
+    padding-top: 36px;
 }
 
 /* Category */
@@ -1089,6 +1095,7 @@ Xem video Header Cart Badge 4:50 để hiểu thêm.*/
 .home-filter__btn {
     margin-right: 12px;
     min-width: 90px;
+    background-color: var(--white-color); /*cái này tự thêm*/
 }
 
 .home-filter__page {
@@ -1365,6 +1372,7 @@ i.home-product-item__like-icon-fill { /*mặc định sẽ ẩn thằng trái ti
 
 .home-product__pagination {
     margin: 48px 0 32px 0;
+    padding-left: 0;
 }
 
 /* Footer */
