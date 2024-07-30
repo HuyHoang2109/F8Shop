@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <!-- cái này tự thêm vì toggle device trên inspect bị lỗi zoom hoài -->
     <title>F8 Shop Huy Hoàng</title>
     <link rel="icon" href="./assets/img/logo-icon.jpeg" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
@@ -17,7 +19,7 @@
     <div class="app">
         <header class="header">
             <div class="grid wide">
-                <nav class="header__navbar">
+                <nav class="header__navbar hide-on-mobile-tablet">
                     <ul class="header__navbar-list">
                         <li class="header__navbar-item header__navbar-item--has-qr header__navbar-item--separate">
                             Vào cửa hàng trên ứng dụng F8Shop
@@ -130,11 +132,18 @@
                 
                 <!-- Header with search -->
                 <div class="header-with-search">
-                    <div class="header__logo">
+
+                    <label for="mobile-search-checkbox" class="header__mobile-search">
+                        <i class="fa-solid fa-magnifying-glass header__mobile-search-icon"></i>
+                    </label>
+
+                    <div class="header__logo hide-on-tablet">
                         <a href="/F8Shop/index.html" class="header__logo-link">
                             <img src="./assets/img/shopeelogo.png" class="header__logo-img"></img>
                         </a>
                     </div>
+
+                    <input type="checkbox" hidden id="mobile-search-checkbox" class="header__search-checkbox">
                     
                     <div class="header__search">
                         <div class="header__search-input-wrap">
@@ -268,6 +277,25 @@
                     </div>
                 </div>
             </div>
+
+            <ul class="header__sort-bar">
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">Liên quan</a>
+                </li>
+
+                <li class="header__sort-item header__sort-item--active">
+                    <a href="" class="header__sort-link">Mới nhất</a>
+                </li>
+
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">Bán chạy</a>
+                </li>
+
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">Giá</a>
+                </li>
+
+            </ul>
         </header>
 
         <div class="app__container">
@@ -295,7 +323,7 @@
                     </div>
                     
                     <div class="grid__column-10"><!--chỗ này có nghĩa là 8 cột còn lại-->
-                        <div class="home-filter">
+                        <div class="home-filter hide-on-mobile-tablet">
                             <span class="home-filter__label">Sắp xếp theo</span>
                             <button class="home-filter__btn btn">Phổ biến</button>
                             <button class="home-filter__btn btn btn-primary">Mới nhất</button>

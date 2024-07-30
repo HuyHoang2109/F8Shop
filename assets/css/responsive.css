@@ -1,14 +1,111 @@
 /* Mobile & Tablet */
 @media (max-width: 1023px) {
+    :root {
+        --header-height: 70px;
+        --navbar-height: 0px;
+    }
+
+    .hide-on-mobile-tablet {
+        display: none;
+    }
+
+    .header { /*CSS để header nó dính trên cùng website*/
+        position: fixed;
+        top: 0; 
+        right: 0;
+        left: 0;
+        z-index: 10;
+    }
+
+    .header__cart-list {
+        position: fixed; /*để chiều dài tỉ lệ với màn hình chứ không phải thằng chứa nó nữa*/
+        top: var(--header-height); /*để cách top đúng chiều cao của header*/
+        right: 0;
+        width: 100%;
+        padding: 0 calc((100% - 644px) / 2); /*644px là chiều dài màn hình tablet*/
+        /* Xem Cart Responsive 3:30 để hiểu rõ */
+    }
+
+    .header__cart-list::after {
+        display: none;
+    }
+
+    .header__sort-bar {
+        display: flex;
+    }
+
+    .app__container {
+        margin-top: calc(var(--header-height) + var(--header-sort-bar-height));
+    }
+
+    .footer__download-app-link { /*cái này mình tự thêm vì 2 cái icon này làm lố chiều dài trang web*/
+        display: none;
+    }
 
 }
 
 /* Tablet */
-@media (min-width: 740px) and (max-width: 1023px) {
+@media (min-width: 739px) and (max-width: 1023px) {
+    .hide-on-tablet {
+        display: none;
+    }  
+
+    .header__cart {
+        width: 70px;
+        text-align: right;
+    }
+
+
+    /* Homework: thay đổi chữ xóa thành icon thùng rác ở mobile và tablet */
+    /* Làm Navigation Bar trên Tablet/Mobile. Tham khảo video Responsive Navigation Bar */
     
 }
 
 /* Mobile */
 @media (max-width: 739px) {
-    
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .header-with-search {
+        justify-content: space-between;
+    }
+
+    .header__cart,
+    .header__logo {
+        width: unset;
+    }
+
+    .header__search {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: var(--header-height);
+        height: var(--header-sort-bar-height);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        z-index: 10;
+        padding: 0 16px;
+        animation: mobileSearchSideIn linear 0.25s;
+        display: none;
+    }
+
+    .header__search-history {
+       position: fixed;
+       width: 100%;
+       top: calc(var(--header-height) + var(--header-sort-bar-height));
+       left: 0;
+       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    @keyframes mobileSearchSideIn {
+        from {
+            opacity: 0;
+            top: calc(var(--header-height) / 2);
+        }
+
+        to {
+            opacity: 1;
+            top: var(--header-height)
+        }
+    }
 }

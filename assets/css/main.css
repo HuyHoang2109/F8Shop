@@ -20,6 +20,7 @@
     padding-left: 0;
     margin: 4px 0 0 0;
     display: flex;
+    box-sizing: border-box;
 }
 
 .header__navbar-item {
@@ -377,7 +378,16 @@ Comment lại để thấy sự thay đổi. */
     height: var(--header-with-search-height);
     display: flex;
     align-items: center;
-    margin: 0 8px;
+    margin: 0 8px; 
+}
+
+.header__mobile-search {
+    padding: 0 12px; /*cho cùng kích thước với header__cart-wrap, để justify-content: between.*/
+}
+
+.header__mobile-search-icon {
+    font-size: 2.6rem;
+    color: var(--white-color);
 }
 
 .header__logo {
@@ -387,12 +397,19 @@ Comment lại để thấy sự thay đổi. */
 .header__logo-link {
     color: transparent;
     text-decoration: none;
+    display: block; /*cho thẻ a bao trọn luôn cái logo. comment rồi inspect lên để thấy sự khác biệt*/
+    line-height: 0; /*cái logo bị lệch lên trên do cái line-height mặc định. cho nó = 0, vì cái logo không phải chữ, nên không cần ke*/
+
 }
 
 .header__logo-img {
     width: 150px;
     color: var(--white-color);
     filter: invert(100%) sepia(2%) saturate(0%) hue-rotate(132deg) brightness(104%) contrast(102%);   
+}
+
+.header__search-checkbox:checked ~ .header__search {
+    display: flex;
 }
 
 .header__search {
@@ -498,7 +515,7 @@ Comment lại để thấy sự thay đổi. */
 
 .header__search-option-item {
     background-color: var(--white-color);
-    padding: 8px 8px;
+    padding: 10px 8px;
     border-radius: 3px;
 }
 /* Xem video Header tìm kiếm CSS từ phút 36:00 để coi cách ổng sủa cái border-radius nếu có bị hỏng.
@@ -553,7 +570,7 @@ Vì mình thêm border-radius ở cả "header__search-option" & "header__search
 .header__cart-list {
     position: absolute;
     top: calc(100% + 7px);
-    right: 0px; 
+    right: 0; 
     background-color: var(--white-color);
     width: 400px;
     border-radius: 2px;
@@ -630,7 +647,7 @@ Xem video Header Cart Badge 4:50 để hiểu thêm.*/
 .header__cart-list-items {
     padding-left: 0;
     list-style: none;
-    height: 50vh; /*viewport height: 50% độ cao màn hình*/
+    max-height: 50vh; /*viewport height: 50% độ cao màn hình*/
     overflow-y: auto; /*overflow-y: scroll vẫn được*/
 }
 
@@ -909,13 +926,64 @@ Xem video Header Cart Badge 4:50 để hiểu thêm.*/
     display: block;
 }
 
+/* Header Sort Bar */
+.header__sort-bar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    height: var(--header-sort-bar-height);
+    background-color: var(--white-color);
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 2px solid #e5e5e5;
+    display: none;
+}
+
+.header__sort-item {
+    flex: 1;
+}
+
+.header__sort-item:first-child .header__sort-link::before {
+    /* xóa cái đường kẻ ở item đầu (sát mép trái mành hình nên có thể sẽ không thấy*/
+    /* chọn first-child rồi CSS cho cái thằng ::before để xóa cái dấu gạch bằng display: none */
+    display: none;
+}  
+
+.header__sort-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    display: block;
+    height: 100%;
+    line-height: var(--header-sort-bar-height);
+    text-align: center;
+    position: relative;
+}
+
+.header__sort-link::before { /*pseudo element này để tạo cái thanh đứng (như cái border tạo thành từng ô)*/
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 60%;
+    border-left: 2px solid #e5e5e5;
+    transform: translateY(-50%);
+}
+
+.header__sort-item--active .header__sort-link {
+    color: var(--primary-color);
+}
+
 /* App Container */
 .app__container {
     background-color: #f5f5f5;
 }
 
 .app__content {
-    padding: 36px;
+    padding: 36px 0; /*aaa*/
 }
 
 /* Category */
@@ -1339,13 +1407,14 @@ i.home-product-item__like-icon-fill { /*mặc định sẽ ẩn thằng trái ti
 
 .footer__download {
     display: flex;
+    align-items: center;
 }
 
 .footer__download-qr {
     width: 80px;
     border: 1px solid var(--border-color);
-    /*height: 80px;*/
-    /*object fit: contain*/ /*không cần*/
+    object-fit: contain;
+    /* height: 80px; */
 }
 
 .footer__download-apps {
@@ -1353,12 +1422,14 @@ i.home-product-item__like-icon-fill { /*mặc định sẽ ẩn thằng trái ti
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /*flex: 1*/
+    /* flex: 1 */
+    flex-wrap: wrap;
 }
 
 .footer__download-app-link {
     color: transparent;
     text-decoration: none;
+    display: inline-block;
 }
 
 .footer__download-app-img {
