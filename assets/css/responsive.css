@@ -1,10 +1,5 @@
 /* Mobile & Tablet */
 @media (max-width: 1023px) {
-    :root {
-        --header-height: 70px;
-        --navbar-height: 0px;
-    }
-
     .hide-on-mobile-tablet {
         display: none;
     }
@@ -38,14 +33,23 @@
         margin-top: calc(var(--header-height) + var(--header-sort-bar-height));
     }
 
-    .footer__download-app-link { /*cái này mình tự thêm vì 2 cái icon này làm lố chiều dài trang web*/
-        display: none;
+    .app__content {
+        padding-top: 4px; /*video là 8px*/
+    }
+
+    .mobile-category {
+        display: block;
     }
 
 }
 
 /* Tablet */
 @media (min-width: 739px) and (max-width: 1023px) {
+    :root {
+        --header-height: 70px;
+        --navbar-height: 0px;
+    }
+
     .hide-on-tablet {
         display: none;
     }  
@@ -63,6 +67,11 @@
 
 /* Mobile */
 @media (max-width: 739px) {
+    :root {
+        --header-height: 54px;
+        --navbar-height: 0px;
+    }
+
     .hide-on-mobile {
         display: none;
     }
@@ -76,6 +85,31 @@
         width: unset;
     }
 
+    .header__mobile-search-icon { /*cái này tự thêm*/
+        margin-top: 2px;
+    }
+
+    .header__logo-img { /*cái này tự thêm*/
+        width: 110px;
+    }
+
+
+/* Tạo đường viền dưới chân những item active. Có 2 cách. Xài cách ở dưới, vì nhìn nó chuyên nghiệp hơn */
+    /* .header__sort-item--active .header__sort-link {
+        border-bottom: 2px solid var(--primary-color);
+    }   */
+
+    .header__sort-item--active .header__sort-link::after {
+        content: "";
+        position: absolute;
+        display: block;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        border-bottom: 2px solid var(--primary-color);
+    }
+
     .header__search {
         position: fixed;
         left: 0;
@@ -87,6 +121,18 @@
         padding: 0 16px;
         animation: mobileSearchSideIn linear 0.25s;
         display: none;
+    }
+
+    @keyframes mobileSearchSideIn {
+        from {
+            opacity: 0;
+            top: calc(var(--header-height) / 2);
+        }
+
+        to {
+            opacity: 1;
+            top: var(--header-height)
+        }
     }
 
     .header__search-history {
@@ -111,6 +157,10 @@
         height: 28px;
     }
 
+    .header__mobile-search {
+        display: block;
+    }
+
     .app__content {
         margin: 0 4px;
     }
@@ -126,15 +176,21 @@
     
     }
 
-    @keyframes mobileSearchSideIn {
-        from {
-            opacity: 0;
-            top: calc(var(--header-height) / 2);
-        }
-
-        to {
-            opacity: 1;
-            top: var(--header-height)
-        }
+    .footer__content {
+        padding: 0 16px;
     }
+
+    .footer__download-qr {
+        display: none;
+    }
+
+    .footer__download-apps { /*cái này tự thêm*/
+        margin-left: 0;
+    }
+
+    .footer__download-app-link {
+        display: block;
+        padding: 6px 0;
+    }
+    
 }

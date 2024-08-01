@@ -42,6 +42,7 @@ Cho cái thăng chứa toàn bộ nội dung website overflow: hidden.*/
 }
 
 .header__navbar-user:hover {
+
 }
 
 .header__navbar-user:hover .header__navbar-user-menu {
@@ -389,6 +390,7 @@ Comment lại để thấy sự thay đổi. */
 
 .header__mobile-search {
     padding: 0 12px; /*cho cùng kích thước với header__cart-wrap, để justify-content: between.*/
+    display: none;
 }
 
 .header__mobile-search-icon {
@@ -561,6 +563,7 @@ Vì mình thêm border-radius ở cả "header__search-option" & "header__search
     padding: 0 12px; /*để vùng hover to ra (quanh icon) 1 tí*/
     cursor: pointer;
     /* Xem Header giỏ hàng trống CSS 22:00 */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .header__cart-icon {
@@ -942,6 +945,7 @@ Xem video Header Cart Badge 4:50 để hiểu thêm.*/
     background-color: var(--white-color);
     list-style: none;
     margin: 0;
+    padding: 0;
     padding-left: 0;
     border-top: 1px solid #e5e5e5;
     border-bottom: 2px solid #e5e5e5;
@@ -1074,6 +1078,69 @@ Xem video Header Cart Badge 4:50 để hiểu thêm.*/
     right: -4px;
     color: var(--primary-color);
 }
+
+/* Mobile Category */
+.mobile-category {
+    display: none;
+}
+
+.mobile-category__list {
+    padding-left: 0;
+    display: flex;
+    list-style: none;
+    max-width: 100%;
+    overflow-x: auto;
+    /*set chiều dài tối đa để hiển thị vừa đủ màn hình, rồi overflow-x cho trường hợp nhiều item quá, sẽ có scrollbar để kéo  */
+}
+
+/* ẩn scrollbar */
+.mobile-category__list::-webkit-scrollbar {
+    display: none;
+}
+
+.mobile-category__item {
+    flex-shrink: 0;
+    /*để các item tự co lại*/
+    margin-right: 10px;
+}
+
+/*áp dụng cho thằng mobile-category__link */
+.mobile-category__item:nth-of-type(3n + 1) .mobile-category__link {
+    background-color: #87afd8;
+}
+
+.mobile-category__item:nth-of-type(3n + 2) .mobile-category__link {
+    background-color: #76c9bd;
+}
+
+.mobile-category__item:nth-of-type(3n + 3) .mobile-category__link {
+    background-color: #88cf81;
+}
+
+
+.mobile-category__link {
+    --line-height: 2rem;
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 1.4rem;
+    text-align: center;
+    display: block;
+    width: 110px;
+    line-height: var(--line-height);
+    height: calc(var(--line-height) * 2);
+    overflow: hidden;
+    border-radius: 4px;
+    font-weight: 300;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    user-select: none; 
+    -webkit-user-select: none;
+    /* 2 cái này để không cho người dùng select chữ*/
+    -webkit-tap-highlight-color: transparent;
+    padding: 0 6px; /*thêm vào để nếu có sử dụng font chữ khác, vẫn sẽ có khoảng trống để element không bị vỡ*/
+}
+
 
 /* Home Sort + Filter */
 .home-filter {
